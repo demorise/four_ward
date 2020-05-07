@@ -62,6 +62,13 @@ rosrun four_ward add_objects_and_markers.py          # loads workspace objects a
 rosrun four_ward jogger.py                           # robot motion code
 rosrun four_ward trace.py                            # visualize trajectory of end-effector
 ```
+In the absence of a joystick, you can test the program with the provided bag file containing a recording of joystick strokes:
+```
+roscd four_ward
+rosbag play joystick.bag
+```
+
+
 ## Using the Xbox One controller
 ![Xbox One joystick mapping](https://github.com/demorise/four_ward/blob/master/Xbox%20controller%20joystick%20mapping.png?raw=true)
 
