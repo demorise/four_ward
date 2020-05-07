@@ -40,7 +40,7 @@ $pip install pyassimp==3.3
 - [ ] Open a terminal and navigate into your workspace directory, build the entire workspace ($catkin build) or build individual packages:
 ```
 catkin build four_ward
-catkin build franka_ros
+catkin build franka_description
 catkin build panda_moveit_config
 source devel/setup.bash
 ```
