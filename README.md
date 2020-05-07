@@ -32,7 +32,15 @@ git clone https://github.com/demorise/panda_moveit_config.git
 ```
 sudo apt-get install ros-kinetic-moveit-visual-tools
 ```
-- [ ] Ensure MoveIt Resources is installed http://wiki.ros.org/moveit_resources
+- [ ] Ensure MoveIt Resources is installed [wiki](http://wiki.ros.org/moveit_resources). In your src folder:
+```
+git clone https://github.com/ros-planning/moveit_resources.git
+```
+Then rebild catkin.
+```
+catkin build moveit_resources
+source devel/setup.bash
+```
 - [ ] Install pyassimp 3.3 to ensure mesh files are loaded correctly:  
 ```
 $pip install pyassimp==3.3
@@ -142,7 +150,7 @@ The Scripts folder in this repository contains
    1. defines a plane (normal to [a,b,c] and determine distance to the current end effector position, creating a vector at the end effector normal to the plane.
    2. If too close, the request is overriden with a move that pushes away from the plane along the normal (after checking sign to ensure direction).
    3. Otherwise, return same position and proceed
-[VF Distance Normal to Plane](https://github.com/demorise/four_ward/VF_plane.tiff) 
+![VF Distance Normal to Plane](https://github.com/demorise/four_ward/blob/master/VF_plane.png) 
 * __trace.py__ (Ademola) creates markers on the robot end-effector during jogging to visualize trajectory.
 
 ### Testing
