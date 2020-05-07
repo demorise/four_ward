@@ -21,8 +21,14 @@ The code has been developed and tested with Ubuntu 14.04 and ROS Kinetic with Mo
 
 ### Installing
 To install the software, 
-- [ ] Clone the repository containing the latest scene objects, URDF robot definition, and python scripts.
-- [ ] Unpack the scripts folder. Place files in **_...folder location...._**
+- [ ] Clone the repository into your catkin workspace 'src' folder
+- [ ] Ensure MoveIt is installed
+- [ ] Ensure MoveIt Visual Tools is installed
+- [ ] Ensure MoveIt Resources is installed http://wiki.ros.org/moveit_resources
+- [ ] Install pyassimp 3.3 to ensure mesh files are loaded correctly  pip install pyassimp==3.3
+- [ ] Open a terminal and navigate into your workspace directory
+- [ ] $catkin build four_ward
+- [ ] $source devel/setup.bash
 - [ ] Open 4 terminal windows and execute these commands in order, each in their own window.
 
 ```
