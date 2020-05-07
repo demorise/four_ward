@@ -55,6 +55,13 @@ rosrun four_ward jogger.py                           # robot motion code
 rosrun four_ward trace.py                            # visualize trajectory of end-effector
 ```
 ## Using the Xbox One controller
+NOTE: In the absence of a joystick, the package can be tested with the provided bagfile containing a recording of joystick strokes:
+```
+roscd four_ward
+rosbag play joystick.bag
+```
+
+
 ![Xbox One joystick mapping](https://github.com/demorise/four_ward/blob/master/Xbox%20controller%20joystick%20mapping.png?raw=true)
 
 The ROS joy_node obtains key data from the joystick and publishes rostopic 'joy' mesages (above) over the ROS network to a jogger node that converts the button and axes joystick outputs into cartesian and joint move commands. 
