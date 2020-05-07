@@ -37,7 +37,14 @@ print "============ Robot Groups:", robot.get_group_names()
 
 scene = moveit_commander.PlanningSceneInterface()
 box_name = 'box'
-vf_active = input('Enter 1 to enable Vf or 0 to disable VF: ')
+
+
+while True:
+  vf_active = input('Enter 1 to enable Vf or 0 to disable VF: ')
+  if vf_active==0 or vf_active==1:
+    break
+  else:
+    print("Enter a valid input")
 
 
 def add_box():
