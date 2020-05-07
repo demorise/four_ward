@@ -55,7 +55,7 @@ rosrun four_ward jogger.py                           # robot motion code
 rosrun four_ward trace.py                            # visualize trajectory of end-effector
 ```
 ## Using the Xbox One controller
-NOTE: In the absence of a joystick, the package can be tested with the provided bagfile containing a recording of joystick strokes:
+NOTE: In the absence of a joystick, the package can be tested with the provided bag file containing a recording of joystick strokes:
 ```
 roscd four_ward
 rosbag play joystick.bag
