@@ -27,7 +27,9 @@ git clone https://github.com/demorise/four_ward.git
 git clone https://github.com/demorise/franka_ros.git
 git clone https://github.com/demorise/panda_moveit_config.git
 ```
-- [ ] Ensure MoveIt is installed
+NOTE: It is important to use the forked versions of 'franka_ros' and 'panda_moveit_config' to get the expected results
+
+- [ ] Ensure MoveIt is installed (http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html)
 - [ ] Ensure MoveIt Visual Tools is installed [GitHub](https://github.com/ros-planning/moveit_visual_tools):
 ```
 sudo apt-get install ros-kinetic-moveit-visual-tools
@@ -44,6 +46,12 @@ catkin build franka_description
 catkin build panda_moveit_config
 source devel/setup.bash
 ```
+- [ ] Open a terminal, navigate into your catkin workspace src folder and install from Debian any package dependencies not already in your workspace:
+```
+rosdep install -y --from-paths . --ignore-src --rosdistro kinetic
+```
+
+
 - [ ] Open 5 terminal windows and execute these commands in order, each in their own window.
 
 ```
