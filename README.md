@@ -138,7 +138,7 @@ The Scripts folder in this repository contains
    2. If too close, the request is overriden with a move that pushes away from the plane along the normal (after checking sign to ensure direction).
    3. Otherwise, return same position and proceed
 [VF Distance Normal to Plane](https://github.com/demorise/four_ward/VF_plane.tiff) 
-* __trace.py__ (Ademola) creates markers on the robot end of arm.
+* __trace.py__ (Ademola) creates markers on the robot end-effector during jogging to visualize trajectory.
 
 ### Testing
 The code was developed by Ademola and Ed Hu on ubuntu machines at their residences. Doug Feicht independently tested code and prepared this document.  
