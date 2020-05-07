@@ -29,13 +29,14 @@ To install the software,
 - [ ] Open a terminal and navigate into your workspace directory
 - [ ] $catkin build four_ward
 - [ ] $source devel/setup.bash
-- [ ] Open 4 terminal windows and execute these commands in order, each in their own window.
+- [ ] Open 5 terminal windows and execute these commands in order, each in their own window.
 
 ```
 roslaunch panda_moveit_config demo.launch            # Launches RViz visualization tool
 rosrun joy joy_node                                  # Launches joystick controller
 rosrun four_ward add_objects_and_markers.py          # loads workspace objects and markers     
 rosrun four_ward jogger.py                           # robot motion code
+rosrun four_ward trace.py                            # visualize trajectory of end-effector
 ```
 ## Using the Xbox One controller
 ![Xbox One joystick mapping](https://github.com/demorise/four_ward/blob/master/Xbox%20controller%20joystick%20mapping.png?raw=true)
