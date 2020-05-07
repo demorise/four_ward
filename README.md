@@ -21,9 +21,11 @@ The code has been developed and tested with Ubuntu 14.04 and ROS Kinetic with Mo
 
 ### Installing
 To install the software, 
-- [ ] Clone the repository into your catkin workspace 'src' folder:
+- [ ] Clone the following repositories into your catkin workspace 'src' folder:
 ```
 git clone https://github.com/demorise/four_ward.git
+git clone https://github.com/demorise/franka_ros.git
+git clone https://github.com/demorise/panda_moveit_config.git
 ```
 - [ ] Ensure MoveIt is installed
 - [ ] Ensure MoveIt Visual Tools is installed [GitHub](https://github.com/ros-planning/moveit_visual_tools):
@@ -35,9 +37,11 @@ sudo apt-get install ros-kinetic-moveit-visual-tools
 ```
 $pip install pyassimp==3.3
 ```
-- [ ] Open a terminal and navigate into your workspace directory
+- [ ] Open a terminal and navigate into your workspace directory, build the entire workspace ($catkin build) or build individual packages:
 ```
 catkin build four_ward
+catkin build franka_ros
+catkin build panda_moveit_config
 source devel/setup.bash
 ```
 - [ ] Open 5 terminal windows and execute these commands in order, each in their own window.
