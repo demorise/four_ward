@@ -21,19 +21,31 @@ The code has been developed and tested with Ubuntu 14.04 and ROS Kinetic with Mo
 
 ### Installing
 To install the software, 
-- [ ] Clone the repository into your catkin workspace 'src' folder: $git clone https://github.com/demorise/four_ward.git
+- [ ] Clone the repository into your catkin workspace 'src' folder:
+```
+git clone https://github.com/demorise/four_ward.git
+```
 - [ ] Ensure MoveIt is installed
-- [ ] Ensure MoveIt Visual Tools is installed
+- [ ] Ensure MoveIt Visual Tools is installed [GitHub](https://github.com/ros-planning/moveit_visual_tools):
+```
+sudo apt-get install ros-kinetic-moveit-visual-tools
+```
 - [ ] Ensure MoveIt Resources is installed http://wiki.ros.org/moveit_resources
-- [ ] Install pyassimp 3.3 to ensure mesh files are loaded correctly:  $pip install pyassimp==3.3
+- [ ] Install pyassimp 3.3 to ensure mesh files are loaded correctly:  
+```
+$pip install pyassimp==3.3
+```
 - [ ] Open a terminal and navigate into your workspace directory
-- [ ] $catkin build four_ward
-- [ ] $source devel/setup.bash
+```
+catkin build four_ward
+source devel/setup.bash
+```
 - [ ] Open 5 terminal windows and execute these commands in order, each in their own window.
 
 ```
 roslaunch panda_moveit_config demo.launch            # Launches RViz visualization tool
 rosrun joy joy_node                                  # Launches joystick controller
+rostopic echo joy                                    # confirm joystick is working
 rosrun four_ward add_objects_and_markers.py          # loads workspace objects and markers     
 rosrun four_ward jogger.py                           # robot motion code
 rosrun four_ward trace.py                            # visualize trajectory of end-effector
@@ -114,7 +126,20 @@ Use the D-pad keys to move the robot end effector parralel to the grid.
 ### Jog Individual Joints
 Press the right bumper (front, upper) button while pressing one of the "YXBA" buttons to move individual joints. Press the left bumper to move negative direciton.
 
-### Collision Detection Test
+### Virtual Fixture 
+The jogger.py code includes routines to determine how close the end effector is to a desired path segment by computing the least perpendicular distance. If enabled, the vf_force_filter() command will evaluate the requested move as a force, and either update the jog postion by returning a unit vector times the jog incrment, or return zero if the move is denied. 
 
-### Virtual Fixture Test
+### Original Code
+The Scripts folder in this repository contains
+* __add_objects_and_markers.py__ (Ademola) loads 3D objects into the scene representing an application (surgery). Mesh files in STL format represent a surgical table, end effector probes and even a model of a patient. Prismatic markers are used to represent the table and a "forbidden zone" about the patient for intitial collision detection. 
+* __jogger.py__ (Ademola) primary functions that receive a subset of joy commands and convert them into cartisian or joint jog commands. Other functions evaluate position requests using Virtual Fixture algorithms to guide or impede motion.
+* __virtual_Fixture.py__ (Ed Hu) initial investigation into VF. The code:
+   1. defines a plane (normal to [a,b,c] and determine distance to the current end effector position, creating a vector at the end effector normal to the plane.
+   2. If too close, the request is overriden with a move that pushes away from the plane along the normal (after checking sign to ensure direction).
+   3. Otherwise, return same position and proceed
+[VF Distance Normal to Plane](https://github.com/demorise/four_ward/VF_plane.tiff) 
+* __trace.py__ (Ademola) creates markers on the robot end of arm.
+
+### Testing
+The code was developed by Ademola and Ed Hu on ubuntu machines at their residences. Doug Feicht independently tested code and prepared this document.  
 
