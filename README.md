@@ -32,15 +32,7 @@ git clone https://github.com/demorise/panda_moveit_config.git
 ```
 sudo apt-get install ros-kinetic-moveit-visual-tools
 ```
-- [ ] Ensure MoveIt Resources is installed [wiki](http://wiki.ros.org/moveit_resources). In your src folder:
-```
-git clone https://github.com/ros-planning/moveit_resources.git
-```
-Then rebild catkin.
-```
-catkin build moveit_resources
-source devel/setup.bash
-```
+- [ ] Ensure MoveIt Resources is installed http://wiki.ros.org/moveit_resources
 - [ ] Install pyassimp 3.3 to ensure mesh files are loaded correctly:  
 ```
 $pip install pyassimp==3.3
@@ -62,13 +54,6 @@ rosrun four_ward add_objects_and_markers.py          # loads workspace objects a
 rosrun four_ward jogger.py                           # robot motion code
 rosrun four_ward trace.py                            # visualize trajectory of end-effector
 ```
-- [ ] In the absence of a joystick, you can test the program with the provided bag file containing a recording of joystick strokes:
-```
-roscd four_ward
-rosbag play joystick.bag
-```
-
-
 ## Using the Xbox One controller
 ![Xbox One joystick mapping](https://github.com/demorise/four_ward/blob/master/Xbox%20controller%20joystick%20mapping.png?raw=true)
 
@@ -138,6 +123,7 @@ pub =  rospy.Publisher(marker_topic, Marker, queue_size = 10)
 scene =  moveit_commander.PlanningSceneInterface()
 scene.add_box(box_name, box_pose, size = (0.4, 0.4, 0.4))
 ```
+If no other objects beside the robot are visible in the workspace, "add" Marker Arry module to RViz.
 
 ### Cartesian Jogging
 Use the D-pad keys to move the robot end effector parralel to the grid.
@@ -147,7 +133,8 @@ Use buttons Y and A to jog the end-effector in the z-axis
 Press the right bumper (front, upper) button while pressing one of the "YXBA" buttons or D-pad to move individual joints. Press the left bumper to move negative direciton.
 
 ### Virtual Fixture 
-The jogger.py code includes routines to determine how close the end effector is to a desired path segment by computing the least perpendicular distance. If enabled, the vf_force_filter() command will evaluate the requested move as a force, and either update the jog postion by returning a unit vector times the jog incrment, or return zero if the move is denied. 
+The jogger.py code includes routines to determine how close the end effector is to a desired path segment by computing the least perpendicular distance. If enabled, the vf_force_filter() command will evaluate the requested move as a force, and either update the jog postion by returning a unit vector times the jog incrment, or return zero if the move is denied. The vf_force_filter() command will evaluate the requested move as a force and constrain jogging to follow a path segment (red dots in image).
+![VF Path Following](https://github.com/demorise/four_ward/blob/master/VF_jog%20patient.png)
 
 ### Original Code
 The Scripts folder in this repository contains
@@ -157,7 +144,7 @@ The Scripts folder in this repository contains
    1. defines a plane (normal to [a,b,c] and determine distance to the current end effector position, creating a vector at the end effector normal to the plane.
    2. If too close, the request is overriden with a move that pushes away from the plane along the normal (after checking sign to ensure direction).
    3. Otherwise, return same position and proceed
-![VF Distance Normal to Plane](https://github.com/demorise/four_ward/blob/master/VF_plane.png) 
+[VF Distance Normal to Plane](https://github.com/demorise/four_ward/VF_plane.tiff) 
 * __trace.py__ (Ademola) creates markers on the robot end-effector during jogging to visualize trajectory.
 
 ### Testing
