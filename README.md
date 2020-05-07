@@ -27,7 +27,7 @@ git clone https://github.com/demorise/four_ward.git
 git clone https://github.com/demorise/franka_ros.git
 git clone https://github.com/demorise/panda_moveit_config.git
 ```
-NOTE: It is important to use the forked versions of 'franka_ros' and 'panda_moveit_config' to get the expected results
+NOTE: It is important to use these forked versions of 'franka_ros' and 'panda_moveit_config' to get the expected results
 
 - [ ] Ensure MoveIt is installed (http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html)
 - [ ] Ensure MoveIt Visual Tools is installed [GitHub](https://github.com/ros-planning/moveit_visual_tools):
