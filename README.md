@@ -75,7 +75,7 @@ rosbag play joystick.bag
 The ROS joy_node obtains key data from the joystick and publishes rostopic 'joy' mesages (above) over the ROS network to a jogger node that converts the button and axes joystick outputs into cartesian and joint move commands. 
 Three groups of controller buttons are mapped to robot drive functions as follows:
 - D-pad "cross" (lower left): Drives robot parallel to the X and/or Y axis, one increment per key press.
-- Right & Left fron "bumpers": Selects joint and sign for joint movement
+- Right & Left front "bumpers": Selects clockwise oranticlockwise direction for joint movement
 - "YXBA" buttons: jog individual robot joints one increment based on front bumpers state
 
 
