@@ -126,9 +126,10 @@ scene.add_box(box_name, box_pose, size = (0.4, 0.4, 0.4))
 
 ### Cartesian Jogging
 Use the D-pad keys to move the robot end effector parralel to the grid.
+Use buttons Y and A to jog the end-effector in the z-axis
 
 ### Jog Individual Joints
-Press the right bumper (front, upper) button while pressing one of the "YXBA" buttons to move individual joints. Press the left bumper to move negative direciton.
+Press the right bumper (front, upper) button while pressing one of the "YXBA" buttons or D-pad to move individual joints. Press the left bumper to move negative direciton.
 
 ### Virtual Fixture 
 The jogger.py code includes routines to determine how close the end effector is to a desired path segment by computing the least perpendicular distance. If enabled, the vf_force_filter() command will evaluate the requested move as a force, and either update the jog postion by returning a unit vector times the jog incrment, or return zero if the move is denied. 
