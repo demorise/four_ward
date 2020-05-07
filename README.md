@@ -21,11 +21,11 @@ The code has been developed and tested with Ubuntu 14.04 and ROS Kinetic with Mo
 
 ### Installing
 To install the software, 
-- [ ] Clone the repository into your catkin workspace 'src' folder $git clone https://github.com/demorise/four_ward.git
+- [ ] Clone the repository into your catkin workspace 'src' folder: $git clone https://github.com/demorise/four_ward.git
 - [ ] Ensure MoveIt is installed
 - [ ] Ensure MoveIt Visual Tools is installed
 - [ ] Ensure MoveIt Resources is installed http://wiki.ros.org/moveit_resources
-- [ ] Install pyassimp 3.3 to ensure mesh files are loaded correctly  pip install pyassimp==3.3
+- [ ] Install pyassimp 3.3 to ensure mesh files are loaded correctly:  $pip install pyassimp==3.3
 - [ ] Open a terminal and navigate into your workspace directory
 - [ ] $catkin build four_ward
 - [ ] $source devel/setup.bash
