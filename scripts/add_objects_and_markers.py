@@ -50,7 +50,7 @@ def talker():
     table.type = marker.MESH_RESOURCE;
     #path = roslib.packages.get_pkg_dir("moveit_tutorials") + "/table.STL"
     #print(path)
-    table.mesh_resource = 'package://' + 'moveit_tutorials' + '/' + 'table.stl'
+    table.mesh_resource = 'package://' + 'four_ward' + '/' + 'table.stl'
     table.action = marker.ADD
     table.scale.x = 0.0175
     table.scale.y = 0.0175
@@ -74,7 +74,7 @@ def talker():
     patient.type = marker.MESH_RESOURCE;
     #path = roslib.packages.get_pkg_dir("moveit_tutorials") + "/table.STL"
     #print(path)
-    patient.mesh_resource = 'package://' + 'moveit_tutorials' + '/' + 'patient.dae'
+    patient.mesh_resource = 'package://' + 'four_ward' + '/' + 'patient.dae'
     patient.action = marker.ADD
     patient.scale.x = 0.4
     patient.scale.y = 0.4

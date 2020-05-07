@@ -14,7 +14,6 @@ from visualization_msgs.msg import MarkerArray
 from sensor_msgs.msg import Joy
 import roslib
 from urdf_parser_py.urdf import URDF
-from pykdl_utils.kdl_kinematics import KDLKinematics
 from moveit_msgs.srv import GetPositionFK
 from std_msgs.msg import Header
 from moveit_msgs.msg import RobotState
